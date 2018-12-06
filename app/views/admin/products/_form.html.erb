@@ -1,15 +1,19 @@
 <%= form_for [:admin, @product] do |f| %>
   <div class="group">
-    <%= f.label "Name: " %>
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="group">
-    <%= f.label "Quantity: " %>
+    <%= f.label :quantity %>
     <%= f.text_field :quantity %>
   </div>
   <div class="group">
-    <%= f.label "Price: " %>
+    <%= f.label :price %>
     <%= f.text_field :price %>
+  </div>
+  <div class="group">
+    <%= f.label :images %>
+    <%= f.file_field :images, multiple: true %>
   </div>
   <%= f.submit %>
 <% end %>

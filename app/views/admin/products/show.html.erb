@@ -8,3 +8,12 @@
 <div class="item">
   price: <%= @product.price %>
 </div>
+
+<% if @product.images.attached? %>
+  <% @product.images.each do |image| %>
+    <div class="item">
+      <%= image_tag(image) %>
+    </div>
+  <% end %>
+
+<% end %>
