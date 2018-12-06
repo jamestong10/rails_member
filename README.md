@@ -1,24 +1,24 @@
-# README
+# Membership system
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## User story
 
-Things you may want to cover:
+1. admin 後台可 CRUD 商品(名稱、數量、價格、圖片) 
+2. 一般使用者可以註冊
+3. 一般使用者可以瀏覽商品
+4. 使用者可設為管理員
+5. 管理員可至 admin 後台管理商品和使用者
+5. 使用者可付費成為 Premium
+6. 使用者成為 Premium 可看到折扣價錢
 
-* Ruby version
 
-* System dependencies
+## Get Started
 
-* Configuration
+Clone the repo
 
-* Database creation
+Install gems `$ bundle install`
 
-* Database initialization
+Run `$ rake db:migrate`
 
-* How to run the test suite
+Start server `$ rails server`
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Visit [localhost:3000](http://localhost:3000) in your browser.
