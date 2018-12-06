@@ -1,0 +1,14 @@
+<h1>All Products</h1>
+<ul>
+  <% @products.each do |product| %>
+    <li>
+      <%= link_to product.name, admin_product_path(product) %>
+      <%= link_to "Edit", edit_admin_product_path(product) %>
+      <%= link_to "Delete", admin_product_path(product), method: :delete %>
+    </li>
+  <% end %>
+</ul>
+
+<div>
+  <%= link_to "Add product", new_admin_product_path %>
+</div>

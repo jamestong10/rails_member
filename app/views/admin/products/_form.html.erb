@@ -1,0 +1,15 @@
+<%= form_for [:admin, @product] do |f| %>
+  <div class="group">
+    <%= f.label "Name: " %>
+    <%= f.text_field :name %>
+  </div>
+  <div class="group">
+    <%= f.label "Quantity: " %>
+    <%= f.text_field :quantity %>
+  </div>
+  <div class="group">
+    <%= f.label "Price: " %>
+    <%= f.text_field :price %>
+  </div>
+  <%= f.submit %>
+<% end %>
