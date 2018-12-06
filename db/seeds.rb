@@ -7,6 +7,14 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+puts "Create Products"
 10.times.each do |n|
   Product.create(name: Faker::Name.name, quantity: rand(100..1000), price: rand(100.1000))
 end
+
+puts "Create Users"
+User.create(email: 'admin@example.com', password: '12341234')
+User.create(email: 'user1@example.com', password: '12341234')
+User.create(email: 'user2@example.com', password: '12341234')
+
+
