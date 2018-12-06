@@ -1,12 +1,12 @@
 <% if user_signed_in? %>
-  Hi, <%= current_user.email %> <%= is_vip? ? "(Premium)" : ""%>
+  Hi, <%= current_user.email %> <%= is_premium? ? "(Premium)" : ""%>
     <% if is_admin? %>
       <li>
           <%= link_to "商品管理", admin_products_path %>
           <%= link_to "使用者管理", admin_users_path %>
       </li>
     <% else %>
-      <% unless(is_vip?) %>
+      <% unless(is_premium?) %>
         <li><%= link_to "Upgrade to Premium", upgrade_premium_path(current_user), method: :POST %></li>
       <% end %>
     <% end %>

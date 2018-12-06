@@ -2,6 +2,9 @@
 
 <ol>
   <% @products.each do |product| %>
-    <li><%= link_to product.name, product_path(product) %></li>
+    <li>
+      <%= link_to product.name, product_path(product) %> 
+      Price: <%= (user_signed_in? && is_premium?) ? discount_price(product.price) : product.price%>
+    </li>
   <% end %>
 </ol>

@@ -4,7 +4,7 @@
   Quantity: <%= @product.quantity %>
 </div>
 <div class="item">
-  Price: <%= @product.price %>
+  Price: <%= (user_signed_in? && is_premium?) ? discount_price(@product.price) : @product.price%>
 </div>
 
 <% if(@product.images.attached?) %>
