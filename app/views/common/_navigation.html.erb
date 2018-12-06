@@ -1,13 +1,17 @@
 <% if user_signed_in? %>
   Hi, <%= current_user.email %>
+    <% if current_user.has_role?(:admin) %>
+      <li>
+          <%= link_to "商品管理", admin_products_path %>
+          <%= link_to "使用者管理", admin_users_path %>
+      </li>
+    <% end %>
+    <% unless(current_user.has_role?(:vip)) %>
+      <li>Upgrade to Premium</li>
+    <% end %>
     <li>
       <%= link_to "登出", destroy_user_session_path, method: 'DELETE' %>
     </li>
-    <% if current_user.has_role?(:admin) %>
-      <li>
-          <%= link_to "後台管理", admin_products_path %>
-      </li>
-    <% end %>
 <% else %>
   <li>
     <%= link_to "註冊", new_user_registration_path %>

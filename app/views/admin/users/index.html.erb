@@ -1,0 +1,25 @@
+<h1>Users</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <td>Email</td>
+      <td>管理員</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td>
+          <% if(user.has_role?(:admin))  %>
+            <%= link_to "remove Admin", admin_disapprove_path(user), method: :POST %>
+          <% else %>
+            <%= link_to "As Admin", admin_approve_path(user), method: :POST %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
