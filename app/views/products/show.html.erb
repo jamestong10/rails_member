@@ -1,0 +1,17 @@
+<h1><%= @product.name %></h1>
+
+<div class="item">
+  Quantity: <%= @product.quantity %>
+</div>
+<div class="item">
+  Price: <%= @product.price %>
+</div>
+
+<% if(@product.images.attached?) %>
+  <% @product.images.each do |image| %>
+    <div class="item">
+      <%= image_tag(image) %>
+    </div>
+  <% end %>
+<% end %>
+
