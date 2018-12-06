@@ -6,6 +6,7 @@
     <tr>
       <td>Email</td>
       <td>管理員</td>
+      <td>Premium</td>
     </tr>
   </thead>
   <tbody>
@@ -18,6 +19,9 @@
           <% else %>
             <%= link_to "As Admin", admin_approve_path(user), method: :POST %>
           <% end %>
+        </td>
+        <td>
+          <%= user.has_role?(:vip) ? "Y" : "N" %>
         </td>
       </tr>
     <% end %>

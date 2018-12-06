@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   root 'products#index'
+  devise_for :users
+
   get '/products', to: 'products#index', as: 'products'
   get '/product/:id', to: 'products#show', as: 'product'
-
-  devise_for :users
+  post '/upgrade/:id', to: 'users#upgrade_primium', as: 'upgrade_premium'
+  
   namespace :admin do
     resources :products
     get '/users', to: 'users#index', as: 'users'
