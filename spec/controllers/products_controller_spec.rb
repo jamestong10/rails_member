@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
 
-  let(:product) {
-    Product.create(name: Faker::Name.name, quantity: rand(100..1000), price: rand(100.1000))
-  }
+  let(:product) { create(:product) }
 
   describe "#index" do
     it "has 200 status code" do

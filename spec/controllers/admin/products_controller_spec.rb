@@ -1,14 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Admin::ProductsController, type: :controller do
-  let(:product) {
-    Product.create(name: Faker::Name.name, quantity: rand(100..1000), price: rand(100.1000))
-  }
+  let(:product) { create(:product) }
   before do
-    user = User.new(email: 'admin@example.com', password: '12341234')
-    user.add_role(:admin)
-    user.save!
-    sign_in user
+    @user = create(:admin)
+    sign_in @user
   end
 
   describe "#index" do
@@ -41,17 +37,17 @@ RSpec.describe Admin::ProductsController, type: :controller do
   
   describe "#create" do
     before(:all) do
-      @product_params = {name: Faker::Name.name, quantity: 1, price: 1}
+      @product_params = attributes_for(:product)
     end
     it "successful create and redirect" do
       post :create, params: {product: @product_params}
       expect(response.status).to eq(302)
     end
   end
-
+  
   describe "#update" do
     before(:all) do
-      @product_params = {name: Faker::Name.name, quantity: 1, price: 1}
+      @product_params = attributes_for(:product)
     end
     it "successful update and redirect" do
       post :update, params: {use_route: 'admin/products/', product: @product_params, id: product.id}

@@ -6,12 +6,12 @@ class Admin::UsersController < AdminController
   end
 
   def approve
-    @user.add_role(:admin) unless @user.has_role?(:admin)
+    @user.grant(:admin)
     redirect_to admin_users_path
   end
   
   def disapprove
-    @user.remove_role :admin
+    @user.refuse(:admin)
     redirect_to admin_users_path
   end
 

@@ -3,8 +3,7 @@ require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
   describe "#upgrade_primium" do
     before do
-      @user = User.new(email: 'sample@example.com', password: '12341234')
-      @user.save!
+      @user = create(:user)
       sign_in @user
     end
     it "has 302 status code" do
