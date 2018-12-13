@@ -2,12 +2,14 @@
 <ul>
   <% @products.each do |product| %>
     <li>
+      <%= product.id %>
       <%= link_to product.name, admin_product_path(product) %>
       <%= link_to "Edit", edit_admin_product_path(product) %>
       <%= link_to "Delete", admin_product_path(product), method: :delete %>
     </li>
   <% end %>
 </ul>
+<%= paginate @products %>
 
 <div>
   <%= link_to "Add product", new_admin_product_path %>
