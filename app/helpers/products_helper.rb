@@ -1,7 +1,7 @@
 module ProductsHelper
 
   def discount_price(price)
-    discount = 0.8
-    (price * discount).floor
+    Discount.getPrice('TEN_PERCENT_OFF', price).floor
   end
+  
 end
