@@ -6,7 +6,7 @@ class UserPolicy
     @user = user
   end
 
-  def upgrade_primium?
+  def upgrade_premium?
     @current_user.id == @user.id
   end
 end

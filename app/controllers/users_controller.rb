@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :not_the_same_user
 
-  def upgrade_primium
+  def upgrade_premium
     @user = User.find(params[:id])
     authorize @user
     @user.add_role(:premium)

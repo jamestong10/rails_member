@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get '/products', to: 'products#index', as: 'products'
   get '/product/:id', to: 'products#show', as: 'product'
-  post '/upgrade/:id', to: 'users#upgrade_primium', as: 'upgrade_premium'
+  post '/upgrade/:id', to: 'users#upgrade_premium', as: 'upgrade_premium'
   
   namespace :admin do
     resources :products
