@@ -49,6 +49,7 @@ group :development, :test do
   gem 'awesome_rails_console'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rails-controller-testing'
 end
 
 group :development do
